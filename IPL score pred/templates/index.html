@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>IPL Score Prediction</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container py-3">
+            <div class="container">
+                <a class="navbar-brand" href="#">IPL FIRST INNINGS SCORE PREDICTION</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse mx-2 px-3 " id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-3 mb-lg-0 ">
+                    <li class="nav-item mx-3">
+                        <a class="nav-link active" aria-current="page" href="https://www.linkedin.com/in/shailesh-gaddam-262988218/">Linkedin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="https://www.github.com/shailesh2210">Github</a>
+                    </li>
+                    <li class="nav-item px-3">
+                        <a class="nav-link active" aria-current="page" href="#">Stack</a>
+                    </li>
+    </nav>
+
+    <!-- Website Title -->
+    <div class="container-fluid ">
+        <h2 class='container my-3 px-3'>
+            <span class='heading_first'><b> First Innings Score Predictor for </b></span><br><span
+                class="heading_second">Indian
+                Premier League (IPL)</span>
+        </h2>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="container-fluid">
+                    <div class="container mx-5">
+                        <div class="card px-4 py-3 mx-5 my-5 bg-dark text-white" style="width: 22rem;">
+                            <!-- Prediction Area -->
+                            <div class="prediction-area">
+
+                                <!-- Prediction Form -->
+                                <div class='container mx-4 px-4 div2 py-2' style="width: 23rem">
+                                    <form action="{{ url_for('predict') }}" method="POST">
+                                        <!-- Batting Team Dropdown -->
+                                        <div class="rounded float-start">
+                                            <select class="form-input align-center rounded float-start"
+                                                name="batting-team">
+                                                <option value="none">--- Select a Batting team ---</option>
+                                                <option value="Mumbai Indians">Mumbai Indians</option>
+                                                <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                                                <option value="Chennai Super Kings">Chennai Super Kings</option>
+                                                <option value="Rajasthan Royals">Rajasthan Royals</option>
+                                                <option value="Kings XI Punjab">Kings XI Punjab</option>
+                                                <option value="Royal Challengers Bangalore">Royal Challengers Bangalore
+                                                </option>
+                                                <option value="Delhi Daredevils">Delhi Daredevils</option>
+                                                <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+                                            </select><br>
+
+                                            <!-- Bowling Team Dropdown -->
+                                            <select class="form-input align-center my-2" name="bowling-team">
+                                                <option value="none">--- Select a Bowling team ---</option>
+                                                <option value="Mumbai Indians">Mumbai Indians</option>
+                                                <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                                                <option value="Chennai Super Kings">Chennai Super Kings</option>
+                                                <option value="Rajasthan Royals">Rajasthan Royals</option>
+                                                <option value="Kings XI Punjab">Kings XI Punjab</option>
+                                                <option value="Royal Challengers Bangalore">Royal Challengers Bangalore
+                                                </option>
+                                                <option value="Delhi Daredevils">Delhi Daredevils</option>
+                                                <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+                                            </select><br>
+                                            <input class="form-input my-2" type="text" name="overs"
+                                                placeholder="Overs (>= 5.0) eg. 7.2"><br>
+                                            <input class="form-input my-2" type="text" name="runs"
+                                                placeholder="Runs eg. 64"><br>
+                                            <input class="form-input my-2" type="text" name="wickets"
+                                                placeholder="Wickets eg. 4"><br>
+                                            <input class="form-input my-2" type="text" name="runs_in_prev_5"
+                                                placeholder="Runs scored in previous 5 Overs eg. 42"><br>
+                                            <input class="form-input my-2" type="text" name="wickets_in_prev_5"
+                                                placeholder="Wickets taken in previous 5 Overs eg. 3"><br>
+                                        </div>
+                                        <input type="submit" class="btn btn-primary my-2" value="Predict Score">
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-3">
+                <div class="card bg-dark text-white" style="width: 20rem;">
+                    <img src="https://www.sportsmirchi.com/wp-content/uploads/2017/02/All-8-IPL-teams.jpg"
+                        class="card-img-top" alt="">
+                    <div class="card-body">
+                        <p class="card-text">The Indian Premier League, also known as TATA IPL for sponsorship reasons,
+                            is a men's T20 franchise cricket league of India. It is annually contested by ten teams
+                            based out of seven Indian cities and three Indian states. The league was founded by the
+                            Board of Control for Cricket in India in 2007</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card rounded float-start bg-dark text-white" style="width: 20rem; height: 20;">
+                    <img src="data:image/jpeg;base64,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"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Indian Premier League (IPL) Teams and Players list
+                            With the mini-auction on the horizon that is scheduled to be held in Kochi on December 23,
+                            all of the 10 franchises were asked to submit the final list of players retained and
+                            released before the deadline on Tuesday, November 15. Teams participating in the top-tier
+                            league made a few bold calls on releasing certain heavyweights to free up the wage bill.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <!-- Footer -->
+    <div class='footer'>
+        <div class="contact">
+            <a target="_blank" href="https://github.com/anujvyas/IPL-First-Innings-Score-Prediction-Deployment"><i
+                    class="fab fa-github fa-lg contact-icon"></i></a>
+            <a target="_blank" href="https://www.linkedin.com/in/anujkvyas"><i
+                    class="fab fa-linkedin fa-lg contact-icon"></i></a>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
